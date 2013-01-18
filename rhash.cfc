@@ -14,6 +14,10 @@ component {
 		return StructKeyExists(this.st, arguments.k);
 	}
 
+	public void function store(required string k, required v) {
+		this.st[arguments.k] = arguments.v;
+	}
+
 	public struct function to_hash() {
 		return this.st;
 	}
