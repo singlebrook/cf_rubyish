@@ -1,13 +1,17 @@
 /* http://www.ruby-doc.org/core-1.9.3/Hash.html */
 
 component {
-	public component function init(required struct st) {
+	public component function init(required struct st
+			, defaultValue = JavaCast('null','')) {
+
 		this.st = arguments.st;
+		this.defaultValue = arguments.defaultValue;
+
 		return this;
 	}
 
 	public function get(required string k) {
-		return this.st[arguments.k];
+		return this.has_key(arguments.k) ? this.st[arguments.k] : this.defaultValue;
 	}
 
 	public boolean function has_key(required string k) {
