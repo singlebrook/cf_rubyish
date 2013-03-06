@@ -2,16 +2,23 @@
 
 component {
 	public component function init(required struct st
-			, defaultValue = JavaCast('null','')) {
+			, defaultValue) {
 
 		this.st = arguments.st;
-		this.defaultValue = arguments.defaultValue;
+		if( StructKeyExists(arguments, 'defaultValue') ){
+			this.defaultValue = arguments.defaultValue;
+		}
 
 		return this;
 	}
 
 	public function get(required string k) {
-		return this.has_key(arguments.k) ? this.st[arguments.k] : this.defaultValue;
+		return this.has_key(arguments.k) ? this.st[arguments.k] : this.getDefaultValue();
+	}
+
+	public function getDefaultValue() {
+		/* Because a key in a struct set to a Java Null doesn't "really exist" */
+		return StructKeyExists(this, 'defaultValue') ? this.defaultValue : JavaCast('null','');
 	}
 
 	public boolean function has_key(required string k) {
@@ -25,4 +32,5 @@ component {
 	public struct function to_hash() {
 		return this.st;
 	}
+
 }
