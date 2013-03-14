@@ -1,0 +1,4 @@
+Unit tests.  Run mxunit in its own vhost. Add new test CFCs
+in ./wwwroot/test/
+
+- Jared 2013-03-14

@@ -4,8 +4,8 @@
 `onRequestStart` - Jared 2013-03-14 */
 
 /* `request.nil()` returns an instance of `nil` - Jared 2013-03-14 */
-function nil() {
-	CreateObject('component', 'nil');
+component function nil() {
+	return CreateObject('component', 'nil');
 }
 request.nil = nil;
 StructDelete(variables, 'nil');
