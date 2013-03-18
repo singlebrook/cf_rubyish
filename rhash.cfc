@@ -1,7 +1,7 @@
 /* http://www.ruby-doc.org/core-1.9.3/Hash.html */
 
 component {
-	public component function init(required struct st
+	public component function new(required struct st
 			, defaultValue) {
 
 		this.st = arguments.st;
