@@ -5,7 +5,7 @@
 
 /* `request.nil()` returns an instance of `nil` - Jared 2013-03-14 */
 component function rubyish_nil() {
-	return CreateObject('component', 'nil');
+	return CreateObject('component', 'lib.nil');
 }
 request.nil = rubyish_nil;
 StructDelete(variables, 'rubyish_nil');
